@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+import React, { useState } from 'react';  
+  
+export default function App() {  
+  const [name, setName] = useState('');  
+  const Cityes = ['Анапа', 'Белгород', 'Волгоград', 'Вологда', 'Владивосток', 'Екатеринбург', 'Ижевск', 'Краснодар', 'Красноярск', 'Липецк', 'Москва', 'Мурманск', 'Новосибирск', 'Норильск', 'Омск', 'Пенза', 'Ростов', 'Рязань', 'Санкт-Петербург', 'Саратов', 'Смоленск', 'Тамбов', 'Томск', 'Тюмень', 'Ульяновск', 'Уфа', 'Хабаровск',];
+  //for (let i=0, i < Cityes.length, i++) {
+    //if {name}==Cityes[i];
+  return (  
+    <div>  
+      <form>
+        <br />  
+        <label>Введите название города:</label>  
+        <input type="text" onChange={(e) => setName(e.target.value)} />  
+      </form>  
+      <br />  
+           Город: {name}  
+    </div>  
+  );  
+} 
