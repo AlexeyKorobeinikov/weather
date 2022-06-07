@@ -2,8 +2,18 @@ import { useEffect, useState } from "react";
 
 const LSCityesKey = "cityes";
 
+const getLocalStorageInfo = () => {
+  try {
+    return JSON.parse(localStorage.getItem(LSCityesKey));
+      } catch {
+        return [];
+      }
+}
+
+const setLocalStorageInfo = (cityes) => localStorage.setItem(LSCityesKey, JSON.stringify(cityes));
+
 const useCityes = () => {
-  const [cityes, setCityes] = useState([]);
+  const [cityes, setCityes] = useState(getLocalStorageInfo() || []);
 
   const createCity = (text) => {
     const newCity = {
@@ -21,14 +31,7 @@ const useCityes = () => {
 
   
   useEffect(() => {
-    const dataFromLS = localStorage.getItem(LSCityesKey);
-    if (dataFromLS) {
-      setCityes(JSON.parse(dataFromLS));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem(LSCityesKey, JSON.stringify(cityes));
+        setLocalStorageInfo(cityes);
   }, [cityes]);
 
 
