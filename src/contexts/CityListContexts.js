@@ -9,8 +9,7 @@ const CityListProvider = ({ children }) => {
 
   return (
     <CityListContext.Provider
-      value={{ cityes, createCity, deleteCity }}
-    >
+      value={{ cityes, createCity, deleteCity }}>
       {children}
     </CityListContext.Provider>
   );
