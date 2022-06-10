@@ -24,16 +24,13 @@ const useCityes = () => {
     setCityes((prev) => [...prev, newCity]);
   };
 
-  
-  const deleteCity = (id) => {
+    const deleteCity = (id) => {
     setCityes((prev) => prev.filter((city) => city.id !== id));
   };
 
-  
-  useEffect(() => {
+   useEffect(() => {
         setLocalStorageInfo(cityes);
   }, [cityes]);
-
 
 	return {
 		cityes,

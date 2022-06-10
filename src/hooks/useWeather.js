@@ -17,10 +17,16 @@ async function getWeather(name) {
 export function useWeather(cityName) {
   const [weatherCity, setWeatherCity] = useState({});
 
-
   useEffect(() => {
-    getWeather(cityName).then((data) => setWeatherCity(data));
+    
+      getWeather(cityName).then((data) => setWeatherCity(data));
+      
+      const intevalId = setInterval(() => { 
+        getWeather(cityName).then((data) => setWeatherCity(data));}, 60000);
+   
+        return () => clearInterval(intevalId); 
+    
   }, [cityName, setWeatherCity]);
-
-  return weatherCity;
+  
+    return weatherCity; 
 }
